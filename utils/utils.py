@@ -4,7 +4,18 @@ import subprocess
 import sys
 from mako.template import Template
 import cv2
+from constants import Constant
 import numbers
+
+
+def set_workspace(ws):
+    Constant.set_workspace(ws)
+    if not os.path.isdir(ws):
+        os.makedirs(ws)
+
+
+def dir(path):
+    return Constant.get_workspace() + "/" + path
 
 
 def file_already_exists(file_path):

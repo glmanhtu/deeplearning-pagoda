@@ -1,5 +1,5 @@
 from subprocess import call
-from utils import *
+from utils.utils import *
 from network.download_file import download_file
 import os
 
