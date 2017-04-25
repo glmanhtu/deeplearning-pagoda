@@ -7,15 +7,17 @@ import cv2
 from constants import Constant
 import numbers
 
+constant = Constant()
+
 
 def set_workspace(ws):
-    Constant.Instance().set_workspace(ws)
+    constant.set_workspace(ws)
     if not os.path.isdir(ws):
         os.makedirs(ws)
 
 
 def dir(path):
-    return Constant.Instance().get_workspace() + "/" + path
+    return constant.get_workspace() + "/" + path
 
 
 def file_already_exists(file_path):

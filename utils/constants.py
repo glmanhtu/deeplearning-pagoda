@@ -1,7 +1,3 @@
-from utils.Singleton import Singleton
-
-
-@Singleton
 class Constant(object):
 
     IMAGE_WIDTH = 227
