@@ -6,6 +6,7 @@ from mako.template import Template
 import cv2
 from constants import Constant
 import numbers
+from subprocess import call
 
 constant = Constant()
 
@@ -73,15 +74,7 @@ def save_checksum(file_path):
 
 
 def execute(command):
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-
-    # Poll process for new output until finished
-    while True:
-        next_line = process.stdout.readline()
-        if next_line == '' and process.poll() is not None:
-            break
-        sys.stdout.write(next_line)
-        sys.stdout.flush()
+    call(command, shell=True)
 
 
 def execute_train_command(command):
