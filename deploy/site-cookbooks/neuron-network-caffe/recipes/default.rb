@@ -39,7 +39,7 @@ file "/tmp/git_wrapper.sh" do
 end
 
 git "#{source_dir}/repo" do
-  repository "https://github.com/glmanhtu/deeplearning-cats-dogs-tutorial.git"
+  repository "https://github.com/glmanhtu/deeplearning-pagoda.git"
   branch "master"
   action :sync
   group default_user
