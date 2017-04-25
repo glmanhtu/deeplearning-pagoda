@@ -9,13 +9,13 @@ import numbers
 
 
 def set_workspace(ws):
-    Constant.set_workspace(ws)
+    Constant.Instance().set_workspace(ws)
     if not os.path.isdir(ws):
         os.makedirs(ws)
 
 
 def dir(path):
-    return Constant.get_workspace() + "/" + path
+    return Constant.Instance().get_workspace() + "/" + path
 
 
 def file_already_exists(file_path):
