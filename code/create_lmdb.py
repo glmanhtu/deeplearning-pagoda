@@ -16,7 +16,6 @@ import cv2
 import lmdb
 import numpy as np
 from caffe.proto import caffe_pb2
-from utils.constants import Constant
 
 from utils.percent_visualize import print_progress
 from utils.utils import *
