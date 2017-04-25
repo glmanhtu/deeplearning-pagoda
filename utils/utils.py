@@ -4,6 +4,7 @@ import subprocess
 import sys
 from mako.template import Template
 import cv2
+import numbers
 
 
 def file_already_exists(file_path):
@@ -39,8 +40,8 @@ def human_2_bytes(s):
 
 def render_template(template_file, destination_file, **data):
     template = Template(filename=template_file)
-    if data:
-        for parameter in data:
+    for parameter in data:
+        if not isinstance(data[parameter], numbers.Number):
             if os.path.isdir(data[parameter]) or os.path.isfile(data[parameter]):
                 data[parameter] = os.path.abspath(data[parameter])
     result = template.render(**data)
