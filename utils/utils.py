@@ -17,7 +17,11 @@ def set_workspace(ws):
 
 
 def dir(path):
-    return constant.get_workspace() + "/" + path
+    dir_path = constant.get_workspace() + "/" + path
+    file_dir = os.path.dirname(dir_path)
+    if not os.path.isdir(file_dir):
+        os.makedirs(file_dir)
+    return dir_path
 
 
 def file_already_exists(file_path):
