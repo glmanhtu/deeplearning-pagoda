@@ -14,6 +14,7 @@ package 'liblmdb-dev'
 package 'python-dev'
 package 'python-opencv'
 package 'python-numpy'
+package 'vim'
 package 'git'
 
 default_user = 'vagrant'
