@@ -7,7 +7,7 @@ from code.make_predictions import *
 
 google_download = DownloadGoogleDrive()
 
-set_workspace("data/cat_dog")
+set_workspace("data/pagoda")
 
 train_zip = GoogleFile('0BxsB7D9gLcdOQkdoQXRUMDdUUnM', 'train.zip', dir('data/train.zip'))
 # test_zip = GoogleFile('0BzL8pCLanAIAZTlvcEs3U082U00', 'test1.zip', dir('data/test1.zip'))
