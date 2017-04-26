@@ -19,7 +19,7 @@ google_download.download_file_from_google_drive(test_zip)
 print "Finish"
 
 print "Extracting test zip file"
-unzip_with_progress(test_zip.file_path, "data")
+unzip_with_progress(test_zip.file_path, dir("data"))
 print "Finish"
 
 print "Starting download train file"
@@ -27,7 +27,7 @@ google_download.download_file_from_google_drive(train_zip)
 print "Finish"
 
 print "Extracting train zip file"
-unzip_with_progress(train_zip.file_path, "data")
+unzip_with_progress(train_zip.file_path, dir("data"))
 print "Finish"
 
 
