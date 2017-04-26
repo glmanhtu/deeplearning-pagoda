@@ -30,11 +30,13 @@ print "Extracting train zip file"
 unzip_with_progress(train_zip.file_path, "data")
 print "Finish"
 
-lmdb = CreateLmdb()
-lmdb.create_lmdb(dir("data/train"), dir("data/train_lmdb"), dir("data/validation_lmdb"), "cat")
 
 train_lmdb = dir("data/train_lmdb")
 validation_lmdb = dir("data/validation_lmdb")
+
+lmdb = CreateLmdb()
+lmdb.create_lmdb(dir("data/train"), train_lmdb, validation_lmdb, "cat")
+
 mean_proto = dir("data/mean.binaryproto")
 
 caffe = Caffe()

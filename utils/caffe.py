@@ -1,4 +1,3 @@
-from subprocess import call
 from utils import *
 from network.download_file import download_file
 import os
@@ -20,7 +19,8 @@ class Caffe(object):
         binaryproto_path = os.path.abspath(binaryproto_path)
         command = [image_mean_bin, "-backend=" + backend, lmbd_path, binaryproto_path]
         command = ' '.join(command)
-        call(command, shell=True)
+        print command
+        execute(command)
         print ("Completed")
 
     def download_trained_model(self):
@@ -39,4 +39,5 @@ class Caffe(object):
         caffe_bin = self.caffe_home() + "/build/tools/caffe"
         command = [caffe_bin, "train", "--solver=" + solver, "--weights", trained_model_file, "2>&1 | tee", log]
         command = ' '.join(command)
+        print command
         execute_train_command(command)
