@@ -35,7 +35,7 @@ train_lmdb = dir("data/train_lmdb")
 validation_lmdb = dir("data/validation_lmdb")
 
 lmdb = CreateLmdb()
-lmdb.create_lmdb(dir("data/train"), train_lmdb, validation_lmdb, "cat")
+lmdb.create_lmdb(dir("data/train"), train_lmdb, validation_lmdb, "pagoda")
 
 mean_proto = dir("data/mean.binaryproto")
 
