@@ -43,8 +43,6 @@ caffe = Caffe()
 caffe.compute_image_mean("lmdb", train_lmdb, mean_proto)
 caffe.compute_image_mean("lmdb", validation_lmdb, mean_proto)
 
-caffe.download_trained_model()
-
 caffe_train_model = dir("caffe_model/caffenet_train.prototxt")
 caffe_solver = dir("caffe_model/caffenet_solver.prototxt")
 

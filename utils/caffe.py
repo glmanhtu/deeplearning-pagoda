@@ -19,7 +19,6 @@ class Caffe(object):
         binaryproto_path = os.path.abspath(binaryproto_path)
         command = [image_mean_bin, "-backend=" + backend, lmbd_path, binaryproto_path]
         command = ' '.join(command)
-        print command
         execute(command)
         print ("Completed")
 
@@ -32,6 +31,7 @@ class Caffe(object):
         save_checksum(trained_model_path + "/bvlc_reference_caffenet.caffemodel")
 
     def train(self, solver, log):
+        self.download_trained_model()
         trained_model_path = self.caffe_home() + "/models/bvlc_reference_caffenet"
         trained_model_file = trained_model_path + "/bvlc_reference_caffenet.caffemodel"
         solver = os.path.abspath(solver)
@@ -39,5 +39,4 @@ class Caffe(object):
         caffe_bin = self.caffe_home() + "/build/tools/caffe"
         command = [caffe_bin, "train", "--solver=" + solver, "--weights", trained_model_file, "2>&1 | tee", log]
         command = ' '.join(command)
-        print command
         execute_train_command(command)
