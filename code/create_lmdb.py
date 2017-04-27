@@ -1,14 +1,3 @@
-'''
-Title           :create_lmdb.py
-Description     :This script divides the training images into 2 sets and stores them in lmdb databases for training and validation.
-Author          :Adil Moujahid
-Date Created    :20160619
-Date Modified   :20160625
-version         :0.2
-usage           :python create_lmdb.py
-python_version  :2.7.11
-'''
-
 import glob
 import random
 
