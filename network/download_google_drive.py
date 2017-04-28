@@ -1,5 +1,4 @@
 import re
-import sys
 from sys import getsizeof
 from dependencies.requests.requests import sessions
 from utils.percent_visualize import print_progress
