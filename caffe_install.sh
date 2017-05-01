@@ -32,7 +32,7 @@ sudo apt-get clean
 
 # Optionally, download your own cudnn; requires registration.  
 if [ -f "/tmp/cudnn-8.0-linux-x64-v6.0.tgz" ] ; then
-  tar -xvf /tmp/cudnn-8.0-linux-x64-v6.0.tgz -C /tmp
+  tar -xvf /tmp/cudnn-8.0-linux-x64-v6.0.tgz /tmp
   sudo cp -P /tmp/cudnn*/libcudnn* /usr/local/cuda/lib64
   sudo cp /tmp/cudnn*/cudnn.h /usr/local/cuda/include
 fi
@@ -54,6 +54,7 @@ if [ -f "../cudnn-8.0-linux-x64-v6.0.tgz" ] ; then
   sed -i '/^# USE_CUDNN := 1/s/^# //' Makefile.config
 fi
 sed -i '/^# WITH_PYTHON_LAYER := 1/s/^# //' Makefile.config
+sed -i 's/\/usr\/local\/cuda/\/usr\/local\/cuda-8.0/g' Makefile.config
 sed -i '/^PYTHON_INCLUDE/a    /usr/local/lib/python2.7/dist-packages/numpy/core/include/ \\' Makefile.config
 
 # Caffe takes quite a bit of disk space to build, and we don't have very much on /.

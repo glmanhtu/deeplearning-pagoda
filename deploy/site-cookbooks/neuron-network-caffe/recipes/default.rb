@@ -17,7 +17,7 @@ package 'python-numpy'
 package 'vim'
 package 'git'
 
-default_user = 'vagrant'
+default_user = 'ubuntu'
 
 python_runtime '2'
 
