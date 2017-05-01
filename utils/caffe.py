@@ -4,7 +4,7 @@ import os
 
 
 class Caffe(object):
-    default_caffe_home = "/home/ubuntu/caffe"
+    default_caffe_home = "caffe"
     trained_url = "http://dl.caffe.berkeleyvision.org/bvlc_reference_caffenet.caffemodel"
 
     def caffe_home(self):
@@ -23,17 +23,16 @@ class Caffe(object):
         print ("Completed")
 
     def download_trained_model(self):
-        trained_model_path = self.caffe_home() + "/models/bvlc_reference_caffenet"
-        if file_already_exists(trained_model_path + "/bvlc_reference_caffenet.caffemodel"):
+        trained_model_path = dir("/trained_models/bvlc_reference_caffenet.caffemodel")
+        if file_already_exists(trained_model_path):
             return
         print "Downloading trained model"
-        download_file(self.trained_url, trained_model_path)
-        save_checksum(trained_model_path + "/bvlc_reference_caffenet.caffemodel")
+        download_file(self.trained_url, os.path.dirname(trained_model_path))
+        save_checksum(trained_model_path)
 
     def train(self, solver, log):
         self.download_trained_model()
-        trained_model_path = self.caffe_home() + "/models/bvlc_reference_caffenet"
-        trained_model_file = trained_model_path + "/bvlc_reference_caffenet.caffemodel"
+        trained_model_file = dir("/trained_models/bvlc_reference_caffenet.caffemodel")
         solver = os.path.abspath(solver)
         log = os.path.abspath(log)
         caffe_bin = self.caffe_home() + "/build/tools/caffe"

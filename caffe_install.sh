@@ -58,30 +58,10 @@ sed -i 's/\/usr\/local\/cuda/\/usr\/local\/cuda-8.0/g' Makefile.config
 sed -i 's/\/usr\/local\/include/\/usr\/local\/include \/usr\/include\/hdf5\/serial/g' Makefile.config
 sed -i '/^PYTHON_INCLUDE/a    /usr/local/lib/python2.7/dist-packages/numpy/core/include/ \\' Makefile.config
 
-# Caffe takes quite a bit of disk space to build, and we don't have very much on /.
-# Hence, we set the TMPDIR for to /mnt/build_tmp, under the assumption that our AMI has
-# already mounted an ephemeral disk on /mnt.  Note that /mnt gets deleted on reboot, so we
-# need an init script.
-# echo 'export TMPDIR=/mnt/build_tmp' >> Makefile.config
-sudo bash -c 'cat <<EOF > /etc/init.d/create_build_dir
-#!/bin/bash
-if [ -d /mnt ] && [ ! -e /mnt/build_tmp ] ; then
-  mkdir /mnt/build_tmp
-  chown ubuntu /mnt/build_tmp
-fi
-EOF'
-sudo chmod 744 /etc/init.d/create_build_dir
-sudo /etc/init.d/create_build_dir
-sudo update-rc.d create_build_dir defaults
-
 # And finally build!
 make -j 8 all py
 
 make -j 8 test
 make runtest
 
-# Do some cleanup
-cd ../
-mkdir installation_files
-mv cudnn* installation_files/
-mv cuda-repo* installation_files/
+export PYTHONPATH=/opt/cat-dogs/repo/caffe/python:$PYTHONPATH
