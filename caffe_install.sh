@@ -32,9 +32,9 @@ sudo apt-get clean
 
 # Optionally, download your own cudnn; requires registration.  
 if [ -f "/tmp/cudnn-8.0-linux-x64-v6.0.tgz" ] ; then
-  tar -xvf /tmp/cudnn-8.0-linux-x64-v6.0.tgz /tmp
-  sudo cp -P /tmp/cudnn*/libcudnn* /usr/local/cuda/lib64
-  sudo cp /tmp/cudnn*/cudnn.h /usr/local/cuda/include
+  tar -xvf /tmp/cudnn-8.0-linux-x64-v6.0.tgz -C /tmp
+  sudo cp -P /tmp/cuda/lib64 /usr/local/cuda/lib64
+  sudo cp /tmp/cuda/include /usr/local/cuda/include
 fi
 # Need to put cuda on the linker path.  This may not be the best way, but it works.
 sudo sh -c "sudo echo '/usr/local/cuda/lib64' > /etc/ld.so.conf.d/cuda_hack.conf"
