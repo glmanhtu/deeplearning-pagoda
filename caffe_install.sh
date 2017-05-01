@@ -12,8 +12,8 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y opencl-headers build-essential protobuf-compiler \
     libprotoc-dev libboost-all-dev libleveldb-dev hdf5-tools libhdf5-serial-dev \
-    libopencv-core-dev  libopencv-highgui-dev libsnappy-dev libsnappy1 \
-    libatlas-base-dev cmake libstdc++6-4.8-dbg libgoogle-glog0 libgoogle-glog-dev \
+    libopencv-core-dev  libopencv-highgui-dev libsnappy-dev \
+    libatlas-base-dev cmake libstdc++6-4.8-dbg libgoogle-glog0v5 libgoogle-glog-dev \
     libgflags-dev liblmdb-dev git python-pip gfortran libopencv-dev
 sudo apt-get clean
 
