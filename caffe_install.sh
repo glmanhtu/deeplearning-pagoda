@@ -64,4 +64,4 @@ make -j 8 all py
 make -j 8 test
 make runtest
 
-export PYTHONPATH=/opt/cat-dogs/repo/caffe/python:$PYTHONPATH
+echo "export PYTHONPATH=/opt/cat-dogs/repo/caffe/python:$PYTHONPATH" >> ~/.bashrc
