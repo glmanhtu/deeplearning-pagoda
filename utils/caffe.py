@@ -36,6 +36,7 @@ class Caffe(object):
         solver = os.path.abspath(solver)
         log = os.path.abspath(log)
         caffe_bin = self.caffe_home() + "/build/tools/caffe"
-        command = [caffe_bin, "train", "--solver=" + solver, "--weights", trained_model_file, "2>&1 | tee", log]
+        command = ["nohub", caffe_bin, "train", "--solver=" + solver, "--weights", trained_model_file, "2>&1 >", log, "&"]
         command = ' '.join(command)
         execute_train_command(command)
+        execute("tail -f " + log)
