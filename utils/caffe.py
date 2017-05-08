@@ -23,7 +23,7 @@ class Caffe(object):
         print ("Completed")
 
     def download_trained_model(self):
-        trained_model_path = dir("/trained_models/bvlc_reference_caffenet.caffemodel")
+        trained_model_path = dir("trained_models/bvlc_reference_caffenet.caffemodel")
         if file_already_exists(trained_model_path):
             return
         print "Downloading trained model"
@@ -32,7 +32,7 @@ class Caffe(object):
 
     def train(self, solver, log):
         self.download_trained_model()
-        trained_model_file = dir("/trained_models/bvlc_reference_caffenet.caffemodel")
+        trained_model_file = dir("trained_models/bvlc_reference_caffenet.caffemodel")
         solver = os.path.abspath(solver)
         log = os.path.abspath(log)
         caffe_bin = self.caffe_home() + "/build/tools/caffe"
