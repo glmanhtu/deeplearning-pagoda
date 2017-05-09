@@ -32,11 +32,10 @@ def image_transformers(net, mean_data):
 
 
 def making_predictions(test_img_path, transformer, net):
-    test_img_paths = [img_path for img_path in glob.glob(test_img_path + "*jpg")]
+    test_img_paths = [img_path for img_path in glob.glob(test_img_path + "/*jpg")]
 
     test_ids = []
-    predictions = []
-
+    predictions = []    
     for img_path in test_img_paths:
         img = cv2.imread(img_path, cv2.IMREAD_COLOR)
         img = transform_img(img, img_width=Constant.IMAGE_WIDTH, img_height=Constant.IMAGE_HEIGHT)

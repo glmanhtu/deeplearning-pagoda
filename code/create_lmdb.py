@@ -5,6 +5,7 @@ import cv2
 import lmdb
 import numpy as np
 from caffe.proto import caffe_pb2
+import os
 
 from utils.percent_visualize import print_progress
 from utils.utils import *
@@ -49,8 +50,7 @@ class CreateLmdb(object):
     def save_lmdb(self, in_txn, in_idx, img_path, keyword):
         img = cv2.imread(img_path, cv2.IMREAD_COLOR)
         img = transform_img(img, img_width=Constant.IMAGE_WIDTH, img_height=Constant.IMAGE_HEIGHT)
-        print img_path
-        if keyword in img_path:
+        if keyword in os.path.basename(img_path):
             label = 0
         else:
             label = 1
