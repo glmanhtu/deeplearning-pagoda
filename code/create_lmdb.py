@@ -49,6 +49,7 @@ class CreateLmdb(object):
     def save_lmdb(self, in_txn, in_idx, img_path, keyword):
         img = cv2.imread(img_path, cv2.IMREAD_COLOR)
         img = transform_img(img, img_width=Constant.IMAGE_WIDTH, img_height=Constant.IMAGE_HEIGHT)
+        print img_path
         if keyword in img_path:
             label = 0
         else:
