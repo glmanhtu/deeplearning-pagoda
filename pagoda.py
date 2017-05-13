@@ -9,7 +9,7 @@ google_download = DownloadGoogleDrive()
 
 set_workspace("data/pagoda")
 
-train_zip = GoogleFile('0BxsB7D9gLcdOQkdoQXRUMDdUUnM', 'train.zip', dir('data/train.zip'))
+train_zip = GoogleFile('0BzL8pCLanAIAVE1GSktLb0JPLU0', 'train.zip', dir('data/train.zip'))
 
 print "\n\n------------------------PREPARE PHRASE----------------------------\n\n"
 
