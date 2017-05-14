@@ -38,6 +38,7 @@ class Caffe(object):
         caffe_bin = self.caffe_home() + "/build/tools/caffe"
         command = ["/usr/bin/nohup", caffe_bin, "train", "--solver=" + solver, "--weights", trained_model_file, ">", log, "&"]
         command = ' '.join(command)
-        execute(command)
+        print "Execute the following command to start your train"
+        print command
         print("Execute the following command to see progress")
-        execute("tail -f " + log)
+        print ("tail -f " + log)
