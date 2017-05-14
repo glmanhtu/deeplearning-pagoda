@@ -48,7 +48,7 @@ def human_2_bytes(s):
     symbols = ('B', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
     letter = s[-1:].strip().upper()
     num = s[:-1]
-    assert num.isdigit() and letter in symbols
+    assert letter in symbols
     num = float(num)
     prefix = {symbols[0]:1}
     for i, s in enumerate(symbols[1:]):
