@@ -9,7 +9,7 @@ google_download = DownloadGoogleDrive()
 
 set_workspace("data/pagoda")
 
-train_zip = GoogleFile('0BzL8pCLanAIAVE1GSktLb0JPLU0', 'train.zip', dir('data/train.zip'))
+train_zip = GoogleFile('0B60FAQcEiqEyWlY1UldpVU5hT2c', 'pagoda_dataset.zip', dir('data/pagoda_dataset.zip'))
 
 print "\n\n------------------------PREPARE PHRASE----------------------------\n\n"
 
@@ -26,7 +26,7 @@ train_lmdb = dir("data/train_lmdb")
 validation_lmdb = dir("data/validation_lmdb")
 
 lmdb = CreateLmdb()
-lmdb.create_lmdb(dir("data/train"), train_lmdb, validation_lmdb, "pagoda")
+lmdb.create_lmdb(dir("data/pagoda_dataset"), train_lmdb, validation_lmdb, "pagoda")
 
 mean_proto = dir("data/mean.binaryproto")
 
@@ -42,7 +42,7 @@ if "SOLVER_CPU" in os.environ:
     solver_mode = "CPU"
 
 render_template("template/caffenet_train.template", caffe_train_model, mean_file=mean_proto,
-                train_lmdb=train_lmdb, validation_lmdb=validation_lmdb, num_output=1)
+                train_lmdb=train_lmdb, validation_lmdb=validation_lmdb, num_output=2)
 render_template("template/caffenet_solver.template", caffe_solver, caffe_train_model=caffe_train_model,
                 snapshot_prefix=dir("caffe_model/snapshot"), solver_mode=solver_mode, max_iterator=Constant.MAX_ITERATOR)
 
