@@ -37,17 +37,21 @@ def making_predictions(test_img_path, transformer, net):
     test_ids = []
     predictions = []    
     for img_path in test_img_paths:
-        img = cv2.imread(img_path, cv2.IMREAD_COLOR)
-        img = transform_img(img, img_width=Constant.IMAGE_WIDTH, img_height=Constant.IMAGE_HEIGHT)
-
-        net.blobs['data'].data[...] = transformer.preprocess('data', img)
-        out = net.forward()
-        pred_probas = out['prob']
+        pred_probas = single_making_prediction(img_path, transformer, net)
 
         test_ids = test_ids + [img_path.split('/')[-1][:-4]]
         predictions = predictions + [pred_probas.argmax()]
 
     return [test_ids, predictions]
+
+
+def single_making_prediction(img_path, transformer, net):
+    img = cv2.imread(img_path, cv2.IMREAD_COLOR)
+    img = transform_img(img, img_width=Constant.IMAGE_WIDTH, img_height=Constant.IMAGE_HEIGHT)
+
+    net.blobs['data'].data[...] = transformer.preprocess('data', img)
+    out = net.forward()
+    return out['prob']
 
 
 def export_to_csv(prediction, export_file):

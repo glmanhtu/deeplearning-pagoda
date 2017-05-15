@@ -1,9 +1,9 @@
 from network.download_google_drive import DownloadGoogleDrive
 from network.google_file import GoogleFile
 from utils.zip_utils import unzip_with_progress
-from code.create_lmdb import CreateLmdb
+from utils.create_lmdb import CreateLmdb
 from utils.caffe import Caffe
-from code.make_predictions import *
+from utils.make_predictions import *
 
 google_download = DownloadGoogleDrive()
 
