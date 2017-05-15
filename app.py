@@ -87,7 +87,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('visualize/visualize.html', {})
+    return render_template('visualize.html')
 
 
 @app.route('/predict', methods = ['POST'])
