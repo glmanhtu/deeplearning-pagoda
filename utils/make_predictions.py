@@ -3,8 +3,8 @@ import cv2
 import caffe
 import numpy as np
 from caffe.proto import caffe_pb2
-from utils.utils import *
-from utils.constants import Constant
+from utils import *
+from constants import Constant
 
 
 caffe.set_mode_gpu()
