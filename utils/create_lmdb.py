@@ -7,8 +7,8 @@ import numpy as np
 from caffe.proto import caffe_pb2
 import os
 
-from utils.percent_visualize import print_progress
-from utils.utils import *
+from percent_visualize import print_progress
+from utils import *
 
 
 class CreateLmdb(object):

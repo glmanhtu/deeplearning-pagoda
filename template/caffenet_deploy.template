@@ -197,10 +197,10 @@ layer {
   }
 }
 layer {
-  name: "fc8-cats-dogs"
+  name: "fc8-pagoda"
   type: "InnerProduct"
   bottom: "fc7"
-  top: "fc8-cats-dogs"
+  top: "fc8-pagoda"
   inner_product_param {
     num_output: 2
   }
@@ -208,6 +208,6 @@ layer {
 layer {
   name: "prob"
   type: "Softmax"
-  bottom: "fc8-cats-dogs"
+  bottom: "fc8-pagoda"
   top: "prob"
 }

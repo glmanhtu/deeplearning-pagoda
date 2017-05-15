@@ -68,9 +68,16 @@ def py_render_template(template_file, destination_file, **data):
 
 
 def save_checksum(file_path):
-    checksum = hashlib.md5(open(file_path, 'rb').read()).hexdigest()
+    read_size = 1024  # You can make this bigger
+    checksum1 = hashlib.md5()
+    with open(file_path, 'rb') as f:
+        data = f.read(read_size)
+        while data:
+            checksum1.update(data)
+            data = f.read(read_size)
+    checksum1 = checksum1.hexdigest()
     with open(file_path + ".checksum", "w") as text_file:
-        text_file.write(checksum)
+        text_file.write(checksum1)
 
 
 def execute(command):
