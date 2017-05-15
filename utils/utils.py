@@ -56,7 +56,7 @@ def human_2_bytes(s):
     return int(num * prefix[letter])
 
 
-def render_template(template_file, destination_file, **data):
+def py_render_template(template_file, destination_file, **data):
     template = Template(filename=template_file)
     for parameter in data:
         if not isinstance(data[parameter], numbers.Number):

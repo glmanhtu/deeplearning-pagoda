@@ -35,13 +35,16 @@ def making_predictions(test_img_path, transformer, net):
     test_img_paths = [img_path for img_path in glob.glob(test_img_path + "/*jpg")]
 
     test_ids = []
-    predictions = []    
+    predictions = []
+    total = len(test_img_paths)
+    index = 0
     for img_path in test_img_paths:
+        print "processing " + str(index) + "/" + str(total) + " - " + img_path
         pred_probas = single_making_prediction(img_path, transformer, net)
 
         test_ids = test_ids + [img_path.split('/')[-1][:-4]]
         predictions = predictions + [pred_probas.argmax()]
-
+        index = index + 1
     return [test_ids, predictions]
 
 

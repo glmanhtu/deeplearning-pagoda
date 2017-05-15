@@ -41,10 +41,10 @@ solver_mode = "GPU"
 if "SOLVER_CPU" in os.environ:
     solver_mode = "CPU"
 
-render_template("template/caffenet_train.template", caffe_train_model, mean_file=mean_proto,
-                train_lmdb=train_lmdb, validation_lmdb=validation_lmdb, num_output=2)
-render_template("template/caffenet_solver.template", caffe_solver, caffe_train_model=caffe_train_model,
-                snapshot_prefix=dir("caffe_model/snapshot"), solver_mode=solver_mode, max_iterator=Constant.MAX_ITERATOR)
+py_render_template("template/caffenet_train.template", caffe_train_model, mean_file=mean_proto,
+                   train_lmdb=train_lmdb, validation_lmdb=validation_lmdb, num_output=2)
+py_render_template("template/caffenet_solver.template", caffe_solver, caffe_train_model=caffe_train_model,
+                   snapshot_prefix=dir("caffe_model/snapshot"), solver_mode=solver_mode, max_iterator=Constant.MAX_ITERATOR)
 
 caffe_log = dir("caffe_model/caffe_train.log")
 

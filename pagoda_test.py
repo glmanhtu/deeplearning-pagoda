@@ -7,7 +7,7 @@ google_download = DownloadGoogleDrive()
 
 set_workspace("data/pagoda")
 
-test_zip = GoogleFile('0B60FAQcEiqEyclVNenhLS3lVN1k', 'pagoda_data_test.zip', dir('data/pagoda_data_test.zip'))
+test_zip = GoogleFile('0B60FAQcEiqEySWNMZzdSVFY5a3M', 'pagoda_data_test.zip', dir('data/pagoda_data_test.zip'))
 
 print "\n\n------------------------PREPARE PHRASE----------------------------\n\n"
 
@@ -25,10 +25,10 @@ mean_proto = dir("data/mean.binaryproto")
 
 caffe_deploy = dir("caffe_model/caffenet_deploy.prototxt")
 
-render_template("template/caffenet_deploy.template", caffe_deploy)
+py_render_template("template/caffenet_deploy.template", caffe_deploy)
 
 mean_data = read_mean_data(mean_proto)
-net = read_model_and_weight(caffe_deploy, dir("caffe_model/caffe_model/snapshot_iter_10000.caffemodel"))
+net = read_model_and_weight(caffe_deploy, dir("caffe_model/snapshot_iter_15000.caffemodel"))
 transformer = image_transformers(net, mean_data)
 prediction = making_predictions(dir("data/pagoda_data_test"), transformer, net)
 

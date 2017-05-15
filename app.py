@@ -66,7 +66,7 @@ set_workspace("data/pagoda")
 mean_proto = dir("data/mean.binaryproto")
 caffe_deploy = dir("caffe_model/caffenet_deploy.prototxt")
 
-render_template("template/caffenet_deploy.template", caffe_deploy)
+py_render_template("template/caffenet_deploy.template", caffe_deploy)
 
 mean_data = read_mean_data(mean_proto)
 net = read_model_and_weight(caffe_deploy, dir("caffe_model/snapshot_iter_15000.caffemodel"))
@@ -87,7 +87,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('visualize/visualize.html')
+    return render_template('visualize/visualize.html', {})
 
 
 @app.route('/predict', methods = ['POST'])

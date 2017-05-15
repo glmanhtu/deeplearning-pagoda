@@ -23,7 +23,7 @@ print "\n\n------------------------TESTING PHRASE-----------------------------\n
 
 caffe_deploy = dir("caffe_model/caffenet_deploy.prototxt")
 
-render_template("template/caffenet_deploy.template", caffe_deploy)
+py_render_template("template/caffenet_deploy.template", caffe_deploy)
 
 mean_proto = dir("data/mean.binaryproto")
 
